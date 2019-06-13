@@ -1,0 +1,17 @@
+:root {
+  --white-smoke: rgba(245, 248, 247, 1);
+  --mellow-apricot: rgba(244, 191, 118, 1);
+  --deep-carrot-orange: rgba(238, 107, 42, 1);
+  --neon-carrot: rgba(245, 151, 72, 1);
+  --rose-ebony: rgba(106, 71, 68, 1);
+
+  --color-primary: var(--white-smoke);
+  --color-primary-accent: var(--mellow-apricot);
+  --color-secondary-accent: var(--deep-carrot-orange);
+  --color-secondary: var(--neon-carrot);
+  --color-dark: var(--rose-ebony);
+
+  --color-font: var(--color-primary);
+  --color-background: var(--color-dark);
+  --color-link: var(--color-secondary);
+}
