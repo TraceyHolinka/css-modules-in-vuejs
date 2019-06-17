@@ -26,13 +26,14 @@ export default {
 </template>
 
 <style lang="postcss">
-@import url(../assets/vars-include.css);
 .authors {
   padding: 0 16px;
 
   & .heading {
     margin-bottom: 30px;
-    @apply --font-thirty;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.64px;
     text-align: center;
     color: var(--color-secondary-accent);
   }
@@ -43,7 +44,9 @@ export default {
 
   & .article-list {
     & .heading {
-      @apply --font-twentyfour;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.32px;
       text-align: left;
     }
 

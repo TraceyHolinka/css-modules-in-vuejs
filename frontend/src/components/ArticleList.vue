@@ -13,12 +13,15 @@ export default {
 </script>
 
 <template>
-  <section class="article-list">
-    <h1 class="heading">{{ title }}</h1>
+  <section>
+    <h1 :class="$style.heading">
+      {{ title }}
+    </h1>
     <section v-if="!!articles.length">
       <ArticleCard
         v-for="article in articles"
         v-bind="$attrs"
+        :class="$style.card"
         :key="article.id"
         :article="article"/>
     </section>
@@ -28,18 +31,15 @@ export default {
   </section>
 </template>
 
-<style lang="postcss">
-@import url(../assets/vars-include.css);
-
-.article-list {
-  & .article-card:first-of-type {
-    margin-top: 24px;
-  }
-
-  & .heading {
-    @apply --font-thirty;
-    text-align: center;
-    color: var(--color-secondary-accent);
-  }
+<style module>
+.heading {
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+  text-align: center;
+  color: var(--color-secondary-accent);
+}
+.card:first-of-type {
+  margin: 24px 0 0;
 }
 </style>

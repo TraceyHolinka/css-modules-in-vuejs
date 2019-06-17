@@ -12,7 +12,7 @@ export default {
 
 <template>
   <article :class="$style.article">
-    <header class="meta">
+    <header :class="$style.meta">
       <h1
         :class="$style.headline"
         v-if="!!article.title"
@@ -44,8 +44,6 @@ export default {
 </template>
 
 <style module>
-@import url(../assets/vars-include.css);
-
 .article {
   margin: 0 16px 48px;
 }
@@ -53,7 +51,7 @@ export default {
   margin-bottom: 24px;
 }
 .headline {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
   font-size: 24px;
   line-height: 29px;
   letter-spacing: -0.32px;
@@ -67,8 +65,8 @@ export default {
   margin: 0 0 16px;
 }
 .imageLead {
-  margin-bottom: 24px;
+  max-width: 100%;
+  margin: 0 0 24px 0;
   border-radius: 25px;
 }
-
 </style>

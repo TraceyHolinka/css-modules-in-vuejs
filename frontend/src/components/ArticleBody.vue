@@ -14,6 +14,7 @@ export default {
 
 <style lang="postcss">
 /* Styles markup delievered by GraphQL */
+
 .body {
   & h2 {
     margin: 24px 0 16px;

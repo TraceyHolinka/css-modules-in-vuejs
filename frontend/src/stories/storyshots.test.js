@@ -8,9 +8,10 @@ initStoryshots({
   configPath: 'config/storybook',
   suite: 'storyshots',
   test: imageSnapshot({
-    beforeScreenshot(page) {
-      // https://github.com/GoogleChrome/puppeteer/blob/v1.8.0/docs/api.md#pagesetviewportviewport
-      page.setViewport({ width: 750, height: 100 })
+    async beforeScreenshot(page) {
+      // https://github.com/GoogleChrome/puppeteer/blob/v1.8.0/docs/api.md
+      await page.setViewport({ width: 750, height: 100 })
+      await page.waitFor(250)
     }
   })
 })

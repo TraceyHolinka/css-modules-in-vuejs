@@ -1,5 +1,7 @@
 import { storiesOf } from '@storybook/vue'
+import Author from '../components/Author.vue'
 import Authors from '../components/Authors.vue'
+import AuthorBio from '../components/AuthorBio.vue'
 
 const author = {
   id: 0,
@@ -25,7 +27,28 @@ const author = {
   ]
 }
 
-storiesOf('Authors', module).add('default', () => ({
+storiesOf('Authors', module)
+.add('Author Page', () => ({
+  components: { Author },
+  template: '<Author :author="author"/>',
+  data() {
+    return {
+      author
+    }
+  }
+}))
+.add('Author Bio',() => ({
+    components: { AuthorBio },
+    template: '<AuthorBio :id="author.id" :name="author.name" :avatar-url="author.avatarUrl" :bio="author.bio"/>',
+    data() {
+      return {
+        author
+      }
+    }
+  }),
+  { notes: 'Used in Author View and Authors View.' }
+)
+.add('Author List', () => ({
   components: { Authors },
   template: '<Authors :authors="authors"/>',
   data() {

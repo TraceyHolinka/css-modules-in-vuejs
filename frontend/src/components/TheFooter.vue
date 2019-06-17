@@ -1,12 +1,10 @@
 <template functional>
   <footer :class="$style.footer">
     <p>
-      <router-link
-        :to="{ name: 'home'}"
-        class="site-title">
+      <router-link :to="{ name: 'home'}">
         Faker News
       </router-link>
-      Storybook and Storyshot Testing Demo by <a href="https://github.com/TraceyHolinka/">Tracey Holinka</a>
+      CSS Modules in Vue.js Demo by <a href="https://github.com/TraceyHolinka/">Tracey Holinka</a>
     </p>
   </footer>
 </template>

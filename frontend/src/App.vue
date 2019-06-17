@@ -20,13 +20,17 @@ export default {
 <template>
   <div
     id="app"
-    class="app">
+    :class="$style.app">
     <TheHeader :menu="menu"/>
     <router-view/>
     <TheFooter/>
   </div>
 </template>
 
-<style lang="postcss">
+<style module>
 @import url(assets/globals.css);
+.app {
+  max-width: 640px;
+  margin: 24px auto 0;
+}
 </style>

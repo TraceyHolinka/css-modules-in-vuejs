@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <section class="author">
+  <section :class="$style.section">
     <AuthorBio
       v-if="!!author"
       :id="author.id"
@@ -29,14 +29,8 @@ export default {
   </section>
 </template>
 
-<style lang="postcss">
-@import url(../assets/vars-include.css);
-
-.author-page {
+<style module>
+.section {
   margin: 0 16px;
-
-  & .author-bio {
-    margin-bottom: 36px;
-  }
 }
 </style>

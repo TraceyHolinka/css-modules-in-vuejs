@@ -1,20 +1,20 @@
-@import url(reset.css);
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url(vars-include.css);
+@import url(vars-color.css);
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+}
 body {
+  margin: 0;
   background: var(--color-background);
-}
-
-.app {
-  max-width: 640px;
-  margin: 24px auto 0;
+  font-family: 'Open Sans', sans-serif;
   color: var(--color-font);
-  font-family: var(--font-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 a {
   color: var(--color-link);
+  text-decoration: none;
 }

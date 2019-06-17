@@ -1,9 +1,11 @@
 <script>
-import HamburgerMenu from './HamburgerMenu.vue'
+import TheMenu from './TheMenu'
+import MenuIcon from './IconMenu'
 
 export default {
   components: {
-    HamburgerMenu
+    TheMenu,
+    MenuIcon
   },
   props: {
     menu: { type: Array, required: true }
@@ -29,48 +31,52 @@ export default {
 </script>
 
 <template>
-  <div class="the-header">
+  <header :class="$style.header">
     <button
-      class="hamburger-menu-button"
       aria-haspopup="true"
       aria-owns="hamburger-menu"
       type="button"
+      :class="$style.button"
       @click="() => openHamburgerMenu()">
-      <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-      <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M5 24h22v2H5zM5 15h22v2H5zM5 6h22v2H5z"/></svg>
+      <MenuIcon/>
     </button>
     <router-link
       :to="{ name: 'home'}"
-      class="site-title">
+      :class="$style.title">
       Faker News: The Real Fake News
     </router-link>
-    <HamburgerMenu
+    <TheMenu
       v-show="showHamburgerMenu"
       id="hamburger-menu"
       :aria-hidden="!showHamburgerMenu"
       :menu="menu"
       :close="closeHamburgerMenu"/>
-  </div>
+  </header>
 </template>
 
-<style lang="postcss">
-@import url(../assets/vars-include.css);
-.the-header {
+<style module>
+.header {
   display: flex;
   margin-bottom: 24px;
-
-  & .hamburger-icon {
-    flex: 0 0 auto;
-    width: 48px;
-    height: 48px;
-    margin-right: 24px;
-    fill: var(--color-primary-accent);
-  }
-
-  & .site-title {
-    color: var(--color-primary);
-    @apply --font-thirtysix;
-    font-weight: bold;
-  }
+}
+.title {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.64px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.button {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  margin: 0 24px 0 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  cursor: pointer;
 }
 </style>

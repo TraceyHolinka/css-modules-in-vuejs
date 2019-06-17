@@ -1,5 +1,5 @@
 <script>
-import Avatar from './SvgAvatar.vue'
+import Avatar from './Avatar'
 
 export default {
   components: {
@@ -16,66 +16,54 @@ export default {
 </script>
 
 <template>
-  <section class="author-bio">
-    <h1 class="name">{{ name }}</h1>
-    <div class="avatar-wrapper">
+  <section :class="$style.section">
+    <h1 :class="$style.name">
+      {{ name }}
+    </h1>
+    <div :class="$style.avatarWrapper">
       <Avatar
         v-if="!!showAvatar"
-        class="avatar"/>
+        :class="$style.avatar"
+      />
     </div>
-    <p class="bio">{{ bio }}</p>
+    <p :class="$style.bio">
+      {{ bio }}
+    </p>
   </section>
 </template>
 
-<style lang="postcss">
-@import url(../assets/vars-include.css);
-
-.author-bio {
-  @apply --grid;
-  @apply --4-column-grid;
-  -ms-grid-rows: auto;
+<style module>
+.section {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 16px 1fr);
   grid-template-rows: auto;
-
-  & .name,
-  & .avatar-wrapper,
-  & .bio {
-    @apply --4-column-grid-all-columns;
-  }
-
-  & .name,
-  & .avatar-wrapper {
-    @apply --grid-hort-center;
-  }
-
-  & .name {
-    -ms-grid-row: 1;
-    grid-row: 1;
-    @apply --grid-hort-center;
-    margin-bottom: 24px;
-    @apply --font-thirty;
-  }
-
-  & .avatar-wrapper {
-    -ms-grid-row: 2;
-    grid-row: 2;
-    margin-bottom: 16px;
-  }
-
-  & .avatar {
-    max-width: 150px;
-    width: 100%;
-    max-height: 150px;
-    height: auto;
-    border-radius: 75%;
-    background: var(--color-primary);
-    fill: var(--color-background);
-    stroke: var(--color-background);
-  }
-
-  & .bio {
-    -ms-grid-row: 3;
-    grid-row: 3;
-    @apply --font-sixteen;
-  }
+}
+.name,
+.avatarWrapper,
+.bio {
+  grid-column: 1 / span 7;
+}
+.name,
+.avatarWrapper {
+  justify-self: center;
+}
+.name {
+  grid-row: 1;
+  justify-self: center;
+  margin-bottom: 24px;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+}
+.avatarWrapper {
+  grid-row: 2;
+  margin-bottom: 16px;
+}
+.bio {
+  grid-row: 3;
+  margin-bottom: 36px;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0;
 }
 </style>
