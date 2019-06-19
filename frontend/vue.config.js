@@ -4,7 +4,8 @@ module.exports = {
     extract: false,
     loaderOptions: {
       css: {
-        use: ['style-loader', 'postcss-loader']
+        use: ['style-loader', 'postcss-loader'], // default setting
+        localIdentName: '[name]_[local]_[hash:base64:5]'
       }
     }
   },

@@ -30,5 +30,5 @@ export default {
 <template>
   <ArticleList
     v-if="!!articles"
-    :articles="articles"/>
+    v-bind="{ articles, title: 'Recent Faker News' }"/>
 </template>

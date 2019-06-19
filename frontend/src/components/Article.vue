@@ -12,11 +12,8 @@ export default {
 
 <template>
   <article :class="$style.article">
-    <header :class="$style.meta">
-      <h1
-        :class="$style.headline"
-        v-if="!!article.title"
-      >
+    <header :class="$style.header">
+      <h1 :class="$style.headline">
         {{ article.title }}
       </h1>
       <p
@@ -47,15 +44,14 @@ export default {
 .article {
   margin: 0 16px 48px;
 }
-.meta {
+.header {
   margin-bottom: 24px;
 }
 .headline {
+  composes: fontHeadingLg from "../assets/globals.css";
   margin: 0 0 20px;
-  font-size: 24px;
-  line-height: 29px;
-  letter-spacing: -0.32px;
   font-weight: bold;
+  color: var(--color-secondary-accent);
 }
 .author {
   margin: 0 0 6px;
@@ -65,8 +61,14 @@ export default {
   margin: 0 0 16px;
 }
 .imageLead {
-  max-width: 100%;
+  width: 100%;
   margin: 0 0 24px 0;
   border-radius: 25px;
+}
+
+@media (min-width: 768px) {
+  .article {
+    margin: 0 0 48px;
+  }
 }
 </style>

@@ -4,6 +4,8 @@ import { withNotes } from '@storybook/addon-notes'
 import Vue from 'vue'
 import StoryRouter from 'storybook-vue-router'
 import AppStorybook from '../../src/stories/AppStorybook.vue'
+import * as filters from '../../src/filters'
+import directives from '../../src/directives'
 
 Vue.component('AppStorybook', AppStorybook)
 
@@ -15,6 +17,16 @@ addDecorator(() => {
   return {
     template: '<AppStorybook><story/></AppStorybook>'
   }
+})
+
+// register global utility filters.
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
+// register global directives.
+Object.keys(directives).forEach(key => {
+  Vue.directive(key, directives[key])
 })
 
 /*
@@ -31,10 +43,9 @@ function loadStories() {
 */
 
 function loadStories() {
+  require('../../src/stories/Globals.stories')
   require('../../src/stories/Articles.stories')
   require('../../src/stories/Authors.stories')
-  require('../../src/stories/TheHeader.stories')
-  require('../../src/stories/TheFooter.stories')
 }
 
 configure(loadStories, module)

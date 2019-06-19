@@ -16,15 +16,12 @@ export default {
 </script>
 
 <template>
-  <section :class="$style.section">
+  <section :class="$style.authorBio">
     <h1 :class="$style.name">
       {{ name }}
     </h1>
-    <div :class="$style.avatarWrapper">
-      <Avatar
-        v-if="!!showAvatar"
-        :class="$style.avatar"
-      />
+    <div :class="$style.avatar">
+      <Avatar v-if="!!showAvatar"/>
     </div>
     <p :class="$style.bio">
       {{ bio }}
@@ -33,37 +30,20 @@ export default {
 </template>
 
 <style module>
-.section {
-  display: grid;
-  grid-template-columns: 1fr repeat(3, 16px 1fr);
-  grid-template-rows: auto;
-}
-.name,
-.avatarWrapper,
-.bio {
-  grid-column: 1 / span 7;
-}
-.name,
-.avatarWrapper {
-  justify-self: center;
+.authorBio {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 .name {
-  grid-row: 1;
-  justify-self: center;
-  margin-bottom: 24px;
-  font-size: 30px;
-  line-height: 36px;
-  letter-spacing: -0.64px;
+  composes: fontHeadingLg from "../assets/globals.css";
+  margin: 0 0 24px;
 }
-.avatarWrapper {
-  grid-row: 2;
+.avatar {
   margin-bottom: 16px;
 }
 .bio {
-  grid-row: 3;
-  margin-bottom: 36px;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0;
+  composes: fontBase from "../assets/globals.css";
+  margin: 0 0 24px;
 }
 </style>

@@ -42,5 +42,5 @@ export default {
 <template>
   <Article 
     v-if= "!!article"
-    :article="article"/>
+    v-bind="{ article }"/>
 </template>

@@ -1,10 +1,10 @@
 <script>
 import CloseIcon from './IconClose'
-import TheMenuNav from './TheMenuNav'
+import TheMenuItem from './TheMenuItem'
 export default {
   components: {
     CloseIcon,
-    TheMenuNav
+    TheMenuItem
   },
   props: {
     menu: { type: Array, required: true },
@@ -25,14 +25,25 @@ export default {
       >
       <CloseIcon/>
       </div>
-      <TheMenuNav v-bind="{ menu, close }"/>
+      <nav :class="$style.nav">
+        <ul
+          v-if="!!menu"
+          :class="$style.list"
+        >
+          <li
+            v-for="item in menu"
+            :key="item.id"
+            :class="$style.item"
+          >
+          <TheMenuItem v-bind="{ item, close }"/>
+          </li>
+        </ul>
+      </nav>
     </div>
   </transition>
 </template>
 
 <style module>
-@import url(../assets/vars-color.css);
-
 /* used with <transition> */
 .menu-enter-active,
 .menu-leave-active {
@@ -63,5 +74,18 @@ export default {
   height: 24px;
   fill: var(--color-dark);
   cursor: pointer;
+}
+.nav {
+  composes: fontHeadingSm from "../assets/globals.css";
+  color: var(--color-dark);
+  font-weight: bold;
+}
+.list {
+  margin: 0;
+  padding: 0;
+}
+.item {
+  margin: 0 0 12px;
+  padding: 6px 0;
 }
 </style>

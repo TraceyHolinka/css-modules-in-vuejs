@@ -5,17 +5,17 @@
   --neon-carrot: rgba(245, 151, 72, 1);
   --rose-ebony: rgba(106, 71, 68, 1);
 
-  /* #adadad
-  #83677b
-  #64485c
-  #501b1d
-  #2e1114
+  --grey: #adadad;
+  --lavendar: #83677b;
+  --eggplant: #64485c;
+  --dark-scarlet: #501b1d;
+  --root-beer: #2e1114;
 
-  #45289e
-  #66fcf1
-  #c5c6c7
-  #1f2a33
-  #0b0c10 */
+  --violet: #45289e;
+  --turquoise: #66fcf1;
+  --silver: #c5c6c7;
+  --dark-gunmetal: #1f2a33;
+  --vampire-black: #0b0c10;
 
   --color-primary: var(--white-smoke);
   --color-primary-accent: var(--mellow-apricot);

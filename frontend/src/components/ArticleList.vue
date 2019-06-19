@@ -1,45 +1,32 @@
 <script>
-import ArticleCard from '../components/ArticleCard.vue'
+import ListContainer from './ListContainer'
+import ArticleCard from './ArticleCard'
 
 export default {
   components: {
+    ListContainer,
     ArticleCard
   },
   props: {
     articles: { type: Array, required: true },
-    title: { type: String, required: false, default: 'Recent Faker News' }
+    title: { type: String, required: false, default: null },
+    showImageLead: { type: Boolean, required: false, default: true },
   }
 }
 </script>
 
 <template>
-  <section>
-    <h1 :class="$style.heading">
-      {{ title }}
-    </h1>
-    <section v-if="!!articles.length">
-      <ArticleCard
-        v-for="article in articles"
-        v-bind="$attrs"
-        :class="$style.card"
-        :key="article.id"
-        :article="article"/>
-    </section>
-    <section v-else>
-      <p>There are no articles</p>
-    </section>
-  </section>
-</template>
+<ListContainer>
 
-<style module>
-.heading {
-  font-size: 30px;
-  line-height: 36px;
-  letter-spacing: -0.64px;
-  text-align: center;
-  color: var(--color-secondary-accent);
-}
-.card:first-of-type {
-  margin: 24px 0 0;
-}
-</style>
+  <template v-if="!!title" v-slot:heading>
+    {{ title }}
+  </template>
+  <template v-slot>
+    <ArticleCard
+      v-for="article in articles"
+      :key="article.id"
+      v-bind="{ article, showImageLead }"
+    />
+  </template>
+</ListContainer>
+</template>

@@ -2,6 +2,7 @@
 export default {
   props: {
     article: { type: Object, required: true },
+    showImageLead: { type: Boolean, required: false, default: true },
     showAuthor: { type: Boolean, required: false, default: true }
   }
 }
@@ -17,7 +18,7 @@ export default {
       </router-link>
     </h2>
     <img
-      v-if="!!article.imageUrl"
+      v-if="showImageLead && !!article.imageUrl"
       :src="article.imageUrl"
       :class="$style.imageLead">
     <p
@@ -44,16 +45,13 @@ export default {
   margin: 0 0 16px;
 }
 .headline {
-  margin-bottom: 20px;
-  font-size: 20px;
-  line-height: 26px;
-  letter-spacing: 0;
+  margin: 0 0 20px;
+  composes: fontHeadingSm from "../assets/globals.css";
   font-weight: bold;
 }
 .imageLead {
   object-fit: cover;
   object-position: right top;
-  max-width: 600px;
   width: 100%;
   max-height: 360px;
   height: 100%;
@@ -61,9 +59,7 @@ export default {
   border-radius: 25px;
 }
 .summary {
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0;
+  composes: fontBase from "../assets/globals.css";
   margin: 0 0 16px;
 }
 </style>

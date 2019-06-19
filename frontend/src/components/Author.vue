@@ -1,36 +1,48 @@
 <script>
-import AuthorBio from './AuthorBio.vue'
-import ArticleList from './ArticleList.vue'
+import AuthorBio from './AuthorBio'
+import ArticleCard from './ArticleCard'
 
 export default {
   components: {
     AuthorBio,
-    ArticleList
+    ArticleCard
   },
   props: {
-    author: { type: Object, required: true }
+    author: { type: Object, required: true },
+    showImageLead: { type: Boolean, required: false, default: true }
   }
 }
 </script>
 
 <template>
-  <section :class="$style.section">
-    <AuthorBio
-      v-if="!!author"
-      :id="author.id"
-      :name="author.name"
-      :avatar-url="author.avatarUrl"
-      :bio="author.bio"/>
-    <ArticleList
-      v-if="!!author.articles"
-      :articles="author.articles"
-      :show-author="false"
-      :title="`Articles by ${author.name}`"/>
+  <section :class="$style.author">
+    <AuthorBio v-bind="{id:author.id, name: author.name, avatarUrl: author.avatarUrl, bio: author.bio}"/>
+    <ArticleCard
+      v-for="article in author.articles"
+      :key="article.id"
+      :class="$style.card"
+      v-bind="{ article, showAuthor: false, showImageLead }"
+    />
+    <template>
+</template>
+
   </section>
 </template>
 
 <style module>
-.section {
+.author {
   margin: 0 16px;
+}
+.card {
+  margin: 16px 0;
+}
+/* .author h1 {
+  background: orange;
+} */
+
+@media (min-width: 768px) {
+  .author {
+    margin: 0;
+  }
 }
 </style>

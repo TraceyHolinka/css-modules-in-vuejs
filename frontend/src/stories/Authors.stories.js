@@ -4,7 +4,6 @@ import Authors from '../components/Authors.vue'
 import AuthorBio from '../components/AuthorBio.vue'
 
 const author = {
-  id: 0,
   name: 'Faker Author',
   avatarUrl: 'http://localhost:3000/assets/avatar.png',
   bio:
@@ -18,7 +17,7 @@ const author = {
       summary: 'Quam sed est quis distinctio quia perspiciatis eum. Quisquam ab quo mollitia. Et ut et doloremque. Aut similique aut explicabo unde neque nobis voluptatem. Quis doloremque nostrum sint distinctio expedita error.'
     },
     {
-      id: 0,
+      id: 1,
       imageUrl: 'http://localhost:3000/assets/animals1.jpg',
       postedDate: 'Fri Aug 17 2018 08:17:20 GMT-0400 (EDT)',
       title: 'Headline for Faker Article',
@@ -28,18 +27,9 @@ const author = {
 }
 
 storiesOf('Authors', module)
-.add('Author Page', () => ({
-  components: { Author },
-  template: '<Author :author="author"/>',
-  data() {
-    return {
-      author
-    }
-  }
-}))
 .add('Author Bio',() => ({
     components: { AuthorBio },
-    template: '<AuthorBio :id="author.id" :name="author.name" :avatar-url="author.avatarUrl" :bio="author.bio"/>',
+    template: '<AuthorBio v-bind="{ id:author.id, name:author.name, avatarUrl:author.avatarUrl, bio:author.bio }"/>',
     data() {
       return {
         author
@@ -48,12 +38,22 @@ storiesOf('Authors', module)
   }),
   { notes: 'Used in Author View and Authors View.' }
 )
-.add('Author List', () => ({
-  components: { Authors },
-  template: '<Authors :authors="authors"/>',
+.add('Author Page', () => ({
+  components: { Author },
+  template: '<Author v-bind="{ author }"/>',
   data() {
     return {
-      authors: [author, author, author]
+      author
+    }
+  }
+}))
+.add('Author List', () => ({
+  components: { Authors },
+  template: '<Authors v-bind="{ authors }"/>',
+  data() {
+    return {
+      authors: [1, 2, 3 ].map(x => ({ ...author, id: x }))
+
     }
   }
 }))

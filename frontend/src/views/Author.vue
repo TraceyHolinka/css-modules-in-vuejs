@@ -1,7 +1,7 @@
 
 <script>
 import gql from 'graphql-tag'
-import Author from '../components/Author.vue'
+import Author from '../components/Author'
 
 export default {
   components: {
@@ -49,7 +49,7 @@ export default {
   <div>
     <Author
       v-if="!!author"
-      :author="author"
-      v-bind="$attrs"/>
+      v-bind="{ author }"
+    />
   </div>
 </template>

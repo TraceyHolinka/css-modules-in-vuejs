@@ -8,14 +8,14 @@ export default {
 
 <template>
     <section
-    class="body"
+    class="article-body"
     v-html="body"/>
 </template>
 
 <style lang="postcss">
-/* Styles markup delievered by GraphQL */
+/* Styles markup delivered by GraphQL */
 
-.body {
+.article-body {
   & h2 {
     margin: 24px 0 16px;
     font-size: 24px;

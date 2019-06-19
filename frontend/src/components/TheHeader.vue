@@ -57,14 +57,14 @@ export default {
 <style module>
 .header {
   display: flex;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
 }
 .title {
   margin: 0;
-  color: var(--color-primary);
-  font-size: 36px;
-  line-height: 44px;
+  font-size: 30px;
+  line-height: 36px;
   letter-spacing: -0.64px;
+  color: var(--color-primary);
   font-weight: bold;
   text-decoration: none;
 }

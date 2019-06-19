@@ -32,7 +32,7 @@ storiesOf('Articles', module)
   .add('Article Card without author',
     () => ({
       components: { ArticleCard },
-      template: '<ArticleCard :article="article" :show-author="false"/>',
+      template: '<ArticleCard v-bind="{ article, showAuthor: false }"/>',
       data() {
         return {
           article
@@ -41,18 +41,9 @@ storiesOf('Articles', module)
     }),
     { notes: 'The ArticleCard components without the author is used on the Author View.' }
   )
-.add('Article List', () => ({
-  components: { ArticleList },
-  template: '<ArticleList :articles="articles" />',
-  data() {
-    return {
-      articles: [article, article, article]
-    }
-  }
-}))
 .add('Article Page', () => ({
   components: { Article },
-  template: '<Article :article="article"/>',
+  template: '<Article v-bind="{ article }"/>',
   data() {
     return {
       article: {
@@ -67,6 +58,16 @@ storiesOf('Articles', module)
           '<h2>Quibusdam sed temporibus temporibus sit est occaecati</h2><p>Consequuntur porro repellat est culpa. Dolor aut omnis amet ratione quod placeat deserunt. Ipsum quaerat esse. Delectus accusantium saepe molestiae laboriosam nesciunt. Doloremque rem debitis voluptas ad hic.</p><p>Optio nihil ut adipisci dolor. Animi quia sunt non ab. Pariatur autem aut. Doloribus voluptatem veniam neque eos. Architecto mollitia id commodi consequuntur id iste.</p><h3>rerum qui consequatur omnis</h3><p>Pariatur excepturi impedit aliquam enim. Quo consequuntur maiores illum dolores at facilis. Corporis ut quibusdam ea aperiam tempore hic assumenda eos. Eos ratione expedita optio eos. A eveniet dolorem vel voluptatem ut. A natus incidunt necessitatibus totam harum.</p><p>Consequatur aut et quaerat officia corporis voluptatibus animi. Magnam eligendi corporis. Quisquam odio provident aliquid ullam doloribus et eum. Beatae quo quos sit impedit quos. Modi magnam expedita saepe quasi veritatis ut quasi quibusdam amet. Laborum veritatis quibusdam ad a molestiae qui consectetur consequatur.</p><p>Delectus beatae quas quisquam vel enim sit. Sequi cupiditate quibusdam et. Quia expedita quia unde eligendi. Nobis necessitatibus laborum cupiditate. Quia facilis officiis necessitatibus debitis laudantium vitae. Est quia fugit atque qui consectetur exercitationem aut atque.</p>',
         title: 'Headline for Faker Article'
       }
+    }
+  }
+}))
+.add('Article List', () => ({
+  components: { ArticleList },
+  template: '<ArticleList v-bind="{ articles, title}"/>',
+  data() {
+    return {
+      articles: [1, 2, 3 ].map(x => ({ ...article, id: x })),
+      title: 'Recent Faker News'
     }
   }
 }))

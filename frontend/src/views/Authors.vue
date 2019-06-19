@@ -1,5 +1,4 @@
 
-<!-- Still need to build out -->
 <script>
 import gql from 'graphql-tag'
 import Authors from '../components/Authors.vue'
@@ -35,5 +34,5 @@ export default {
 <template>
   <Authors
     v-if="!!authors"
-    :authors="authors"/>
+    v-bind="{ authors }"/>
 </template>

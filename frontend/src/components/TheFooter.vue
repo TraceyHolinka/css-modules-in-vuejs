@@ -11,7 +11,8 @@
 
 <style module>
 .footer {
-  margin: 36px auto 24px;
+  composes: fontBase from "../assets/globals.css";
+  margin: 48px auto 24px;
   font-weight: bold;
 }
 </style>
