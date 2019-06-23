@@ -6,10 +6,7 @@ export default {
     Avatar
   },
   props: {
-    id: { type: Number, requried: true, default: null },
-    name: { type: String, requried: true, default: null },
-    avatarUrl: { type: String, requried: false, default: null },
-    bio: { type: String, requried: true, default: null },
+    author: { type: Object, requried: true },
     showAvatar: { type: Boolean, requried: false, default: true }
   }
 }
@@ -18,13 +15,13 @@ export default {
 <template>
   <section :class="$style.authorBio">
     <h1 :class="$style.name">
-      {{ name }}
+      {{ author.name }}
     </h1>
     <div :class="$style.avatar">
       <Avatar v-if="!!showAvatar"/>
     </div>
     <p :class="$style.bio">
-      {{ bio }}
+      {{ author.bio }}
     </p>
   </section>
 </template>
