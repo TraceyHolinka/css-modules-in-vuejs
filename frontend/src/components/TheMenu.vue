@@ -57,7 +57,6 @@ export default {
   padding: 24px 12px;
   background: var(--color-primary);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s;
 }
 .closeIcon {
   position: absolute;
