@@ -16,7 +16,7 @@ export default {
 
 <template>
   <section :class="$style.author">
-    <AuthorBio v-bind="{id:author.id, name: author.name, avatarUrl: author.avatarUrl, bio: author.bio}"/>
+    <AuthorBio v-bind="{ author }"/>
     <ArticleCard
       v-for="article in author.articles"
       :key="article.id"
@@ -36,8 +36,10 @@ export default {
 .card {
   margin: 16px 0;
 }
-/* .author h1 {
-  background: orange;
+
+/* Here h2 isn't locally scopped. */
+/* .author h2 {
+  background: purple;
 } */
 
 @media (min-width: 768px) {

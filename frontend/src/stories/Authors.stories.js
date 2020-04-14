@@ -29,7 +29,7 @@ const author = {
 storiesOf('Authors', module)
 .add('Author Bio',() => ({
     components: { AuthorBio },
-    template: '<AuthorBio v-bind="{ id:author.id, name:author.name, avatarUrl:author.avatarUrl, bio:author.bio }"/>',
+    template: '<AuthorBio v-bind="{ author }"/>',
     data() {
       return {
         author

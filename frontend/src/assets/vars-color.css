@@ -5,18 +5,6 @@
   --neon-carrot: rgba(245, 151, 72, 1);
   --rose-ebony: rgba(106, 71, 68, 1);
 
-  --grey: #adadad;
-  --lavendar: #83677b;
-  --eggplant: #64485c;
-  --dark-scarlet: #501b1d;
-  --root-beer: #2e1114;
-
-  --violet: #45289e;
-  --turquoise: #66fcf1;
-  --silver: #c5c6c7;
-  --dark-gunmetal: #1f2a33;
-  --vampire-black: #0b0c10;
-
   --color-primary: var(--white-smoke);
   --color-primary-accent: var(--mellow-apricot);
   --color-secondary-accent: var(--deep-carrot-orange);
