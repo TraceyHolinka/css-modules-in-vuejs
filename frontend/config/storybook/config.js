@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator } from '@storybook/vue'
 import { withNotes } from '@storybook/addon-notes'
 import Vue from 'vue'
